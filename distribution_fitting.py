@@ -29,7 +29,7 @@ def best_fit_distribution(data, bins=200, ax=None, sortby='bic', output_folder='
     parameters = []
     dist_param = {}
 
-    for d in ['levy', 'levy_l', 'levy_stable', 'loguniform', 'reciprocal', 'truncnorm', 'vonmises']: distn_names.remove(d)
+    for d in ['levy', 'levy_l', 'levy_stable', 'loguniform', 'reciprocal', 'truncnorm', 'vonmises', 'wrapcauchy']: distn_names.remove(d)
     distributions = distn_names
 
     # Estimate distribution parameters from data
