@@ -189,15 +189,6 @@ def generate_pp_qq_plots(data, best_fits, dist_param, sizervs, output_folder):
         axs[i, 0].set_ylabel('Observed quantiles')
         title = 'qq plot for ' + distribution + ' distribution'
         axs[i, 0].set_title(title)
-        # axs[i, 0].plot(norm, data, "o")
-        # min_value = np.floor(min(min(norm), min(data)))
-        # max_value = np.ceil(max(max(norm), max(data)))
-        # axs[i, 0].plot([min_value, max_value], [min_value, max_value], 'r--')
-        # axs[i, 0].set_xlim(min_value, max_value)
-        # axs[i, 0].set_xlabel('Theoretical quantiles')
-        # axs[i, 0].set_ylabel('Observed quantiles')
-        # title = 'qq plot for ' + distribution + ' distribution'
-        # axs[i, 0].set_title(title)
 
         # pp plot
 
