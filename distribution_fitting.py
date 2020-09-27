@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import scipy.stats as st
 from scipy.stats._continuous_distns import _distn_names as distn_names
+from sklearn import datasets
 import matplotlib.pyplot as plt
 import os
 
@@ -79,7 +80,6 @@ def best_fit_distribution(data, bins=200, ax=None, sortby='bic', output_folder='
                 try:
                     if ax:
                         pd.Series(pdf, x).plot(ax=ax, label=dist_name)
-                        # plt.legend()
                 except Exception:
                     pass
 
@@ -97,11 +97,7 @@ def best_fit_distribution(data, bins=200, ax=None, sortby='bic', output_folder='
 
     # sort results by p-value, sse, and chi-squared
     print('sorting results by: {}'.format(sortby))
-    # descending: p-value, ascending: SSE, chi-square
-    if sortby == 'p_value':
-        results = results.sort_values(by=sortby, ascending=False).reset_index(drop=True)
-    else:
-        results = results.sort_values(by=sortby, ascending=True).reset_index(drop=True)
+    results = results.sort_values(by=sortby, ascending=True).reset_index(drop=True)
 
     best_distribution = results.iloc[0]['distribution']
 
@@ -226,7 +222,6 @@ def generate_pp_qq_plots(data, best_fits, dist_param, sizervs, output_folder):
 
 if __name__ == '__main__':
 
-    from sklearn import datasets
     data_set = datasets.load_breast_cancer()
     y = data_set.data[:, 0]
     data = pd.Series(y)
